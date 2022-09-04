@@ -1,5 +1,7 @@
 package com.revature.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,7 @@ public class AccountController {
 		return this.accountService.login(account, request);
 	}
 	
-	@RequestMapping("/logout")
+	@GetMapping("/logout")
 	public String logOut(HttpServletRequest request) {
 		return this.accountService.logout(request);
 	}
@@ -37,5 +39,10 @@ public class AccountController {
 	@PostMapping("/register")
 	public String register(@RequestBody Account account) {
 		return this.accountService.register(account);
+	}
+	
+	@GetMapping("/allemail")
+	public List<Account> findAllEmail() {
+		return this.accountService.findAllEmail();
 	}
 }

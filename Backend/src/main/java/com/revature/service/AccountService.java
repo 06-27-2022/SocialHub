@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -44,5 +46,9 @@ public class AccountService {
 		}else {
 			return "Account with this email already exists";
 		}
+	}
+	
+	public List<Account> findAllEmail(){
+		return this.accountRepository.findAll();
 	}
 }

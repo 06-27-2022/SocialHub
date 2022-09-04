@@ -1,12 +1,13 @@
 package com.revature.model;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
@@ -14,24 +15,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Account {
-    
-	@Id
+public class Photo {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String email;
-    private String password;
-    private String firstName;
-    private String lastName;
+    private String urllink;
+    private String description;
+    private String tag;
+    
+    @ManyToOne
+    @JoinColumn(name = "uploaded_by")
+    private Account uploadedBy;
     
     /*
-    @OneToMany(mappedBy="uploadedBy")
-    private Set<Photo> uploadedPhotos;
-    
-    @OneToMany(mappedBy="ratingBy")
+    @OneToMany(mappedBy = "photo")
     private Set<Rating> ratings;
     */
 }
