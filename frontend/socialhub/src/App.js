@@ -1,9 +1,8 @@
 import './App.css';
+import React from 'react';
 import NavBar from './components/NavBar/NavBar';
-import LeftPanel from './components/MainPage/LeftPanel/LeftPanel';
-import StatusBar from './components/MainPage/StatusBar/StatusBar';
-import RightPanel from './components/MainPage/RightPanel/RightPanel';
-
+import { BrowserRouter as Router } from 'react-router-dom';
+import { AppRoutes} from './router/AppRoutes';
 
 // import Layout from './components/MainPage/Layout';
 // import Login from './components/Login/Login';
@@ -11,20 +10,9 @@ import RightPanel from './components/MainPage/RightPanel/RightPanel';
 
 function App() {
   return (
-    <div className="app">
-      <NavBar />
-
-      <div className="app__body">
-        <LeftPanel />
-        <StatusBar /> 
-        <RightPanel />
-        
-        {/* Feed */}
-        {/* Widgets */}
-
-      </div>
-      
-    </div>
+    <Router>
+        <AppRoutes></AppRoutes>
+      </Router>
   );
 }
 
