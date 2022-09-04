@@ -1,0 +1,20 @@
+.leftpanelRow {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.leftpanelRow:hover {
+    background-color: lightgray;
+    border-radius: 10px;
+}
+.leftpanelRow > h4 {
+    margin-left: 20px;
+    font-weight: 600
+}
+
+.leftpanelRow > .MuiSvgIcon-root {
+    font-size: xx-large;
+    color: #2e81f4;
+}
