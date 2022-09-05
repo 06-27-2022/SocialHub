@@ -1,8 +1,7 @@
 import './App.css';
 import React from 'react';
-import NavBar from './components/NavBar/NavBar';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AppRoutes} from './router/AppRoutes';
+import { AppRoutes } from './router/AppRoutes';
 
 // import Layout from './components/MainPage/Layout';
 // import Login from './components/Login/Login';
@@ -11,8 +10,8 @@ import { AppRoutes} from './router/AppRoutes';
 function App() {
   return (
     <Router>
-        <AppRoutes></AppRoutes>
-      </Router>
+      <AppRoutes></AppRoutes>
+    </Router>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "./Login.css";
 import socialhubbanner from '../../images/socialhub.png'
 import { Grid } from '@mui/material';
@@ -40,7 +40,7 @@ export function Login() {
             .then(response => response.text())
             .then(data => {
                 console.log(data);
-                window.location.reload();
+                setLogin_panel(!login_panel);
             });
         
 

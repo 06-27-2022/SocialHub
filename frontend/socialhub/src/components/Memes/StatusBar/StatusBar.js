@@ -6,7 +6,7 @@ import Post from "../Post/Post";
 function StatusBar() {
   return (
     <div className="statusbar">
-        
+        <StatusSender />
 
         <Post
         profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7oeegjCS9uIRPQlcTpEtMSWgcHuP6Wm-glw&usqp=CAU"
