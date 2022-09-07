@@ -8,8 +8,8 @@ import GroupsIcon from '@mui/icons-material/Groups';
 function LeftPanel() {
     return (
         <div className="leftpanel">
-            <LeftPanelRow src="https://flyclipart.com/thumb2/jane-doe-cliparts-708896.png"
-                title="Jane Doe" />
+            <Link to="/userpage"><LeftPanelRow src="https://flyclipart.com/thumb2/jane-doe-cliparts-708896.png"
+                title="Jane Doe" /></Link>
             <LeftPanelRow Icon={PeopleIcon} title="Friends" />
             <div className="leftpanelRow-unactive">
                 <GroupsIcon />

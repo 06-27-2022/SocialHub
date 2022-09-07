@@ -5,8 +5,8 @@
 }
 
 .shlogo {
-    margin-left: -150px;
-    margin-top: 180px;
+    margin-left: 230px;
+    margin-top: 170px;
 }
 .text {
     font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
@@ -16,7 +16,7 @@
     width: 500px;
     text-align: left;
     margin-left: 230px;
-    margin-top: -15px;
+    margin-top: 20px;
 }
 .logincard__container {
     width: 400px;
@@ -24,7 +24,9 @@
     margin-top: 150px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     padding-bottom: 30px;
+    margin-left: 100px;
 }
+
 .login__input {
     width: 340px;
     height: 45px;
@@ -34,6 +36,7 @@
     font-size: 18px;
     padding: 0px 15px;
 }
+
 .login__button {
     width: 370px;
     height: 50px;
@@ -56,11 +59,13 @@
     color: white;
     background-color: #43B829;
 }
+
 .forget_Text {
     margin-top: 15px;   
     color: #1877f2;
     font-weight: 500;
 }
+
 .dividor {
     width: 360px;
     margin-left: 20px;

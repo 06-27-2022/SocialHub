@@ -75,7 +75,7 @@ export function Login() {
             <Grid className="main__content" container >
                 <Grid item xs={7}>
                     <div className="shlogo">
-                        <img src={socialhubbanner} alt="SocialHub Banner" width="300px" />
+                        <img src={socialhubbanner} alt="SocialHub Banner" width="350px" />
                     </div>
                     <div>
                         <h1 className="text">SocialHub helps you connect and share with the people in your life.</h1>
