@@ -3,6 +3,9 @@ package com.revature.service;
 import java.io.IOException;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -13,14 +16,20 @@ import org.springframework.web.server.ResponseStatusException;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.revature.model.Account;
+import com.revature.model.Photo;
+import com.revature.repository.PhotoRepository;
 
 @Service
 public class AWSS3Service implements FileService{
 	@Autowired
 	private AmazonS3Client awsS3Client;
 	
+	@Autowired
+	private PhotoRepository photoRepository;
+	
 	@Override
-	public String uploadFile(MultipartFile file) {
+	public String uploadFile(MultipartFile file, String description, String tag,HttpServletRequest request) {
 		
 		String filenameExtension = StringUtils.getFilenameExtension(file.getOriginalFilename());
 		
@@ -37,7 +46,17 @@ public class AWSS3Service implements FileService{
 		}
 		
 		awsS3Client.setObjectAcl("muhammad-socialhub", key, CannedAccessControlList.PublicRead);
+		String publicUrl = awsS3Client.getResourceUrl("muhammad-socialhub", key);
 		
-		return awsS3Client.getResourceUrl("muhammad-socialhub", key);
+		HttpSession session = request.getSession(false);
+		int id =  (int) session.getAttribute("accountId");
+		
+		System.out.println("UserID:" + id);
+		
+		Account account = new Account(id,"","","","");
+		Photo photo = new Photo(0, publicUrl, description, tag, account);
+		photoRepository.save(photo);
+		
+		return publicUrl;
 	}
 }

@@ -37,39 +37,24 @@ function StatusSender() {
     
     if (!inputRef.current.value) return;
 
-    
     const formData = new FormData();
 
     formData.append("file", photoToPost);
-    //formData.append("description", inputRef.current.value);
-    //formData.append("name", session?.user.name);
-    //formData.append("email", session?.user.email);
-    //formData.append("profilePic", session?.user.image);
-    console.log("button clicked");
+    formData.append("description", inputRef.current.value);
+    formData.append("tag", "meme");
 
     fetch(photoEndPoint, {
       method: "post",
       body: formData,
+      credentials: "include",
     }).then((res) => {
       if (res.ok) {
         inputRef.current.value = "";
         removeImage();
-        console.log(res.data);
-        console.log("File uploaded successfully.");
+        window.location.reload(false);
       }
     });
-
-    // axios
-    //   .post(photoEndPoint, formData, {
-    //     headers: { accept: "application/json" },
-    //   })
-    //   .then((response) => {
-    //     inputRef.current.value = "";
-    //     removeImage();
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    
   };
   return (
     <div className="statusSender">

@@ -9,10 +9,13 @@ import com.revature.model.Account;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
+	
 	//for login
 	Account findByEmailAndPassword(String email, String password);
+	
 	//for registeration
 	Account findByEmail(String email);
+	
 	//for testing tablesRelationship
 	List<Account> findAll();
 }

@@ -35,4 +35,6 @@ public class Photo {
     @OneToMany(mappedBy = "photo")
     private Set<Rating> ratings;
     */
+    
+    
 }

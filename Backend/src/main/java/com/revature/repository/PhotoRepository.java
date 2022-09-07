@@ -10,6 +10,6 @@ import com.revature.model.Photo;
 @Repository
 public interface PhotoRepository extends JpaRepository<Photo, Integer>{
 	
-	List<Photo> findAllByTag(String tag);
+	List<Photo> findAllByTagOrderByIdDesc(String tag);
 
 }

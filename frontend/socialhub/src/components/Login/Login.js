@@ -56,6 +56,7 @@ export function Login() {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
+            credentials: 'include',
         };
         fetch("http://localhost:8080/account/login", requestOptions)
             .then(response => response.text())

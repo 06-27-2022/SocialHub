@@ -20,7 +20,7 @@ function StatusBar() {
         <Post
           profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7oeegjCS9uIRPQlcTpEtMSWgcHuP6Wm-glw&usqp=CAU"
           message={photo.description}
-          timestamp="10:30pm"
+          
           username={photo.uploadedBy.firstName}
           key={photo.id}
           image={photo.urllink} />

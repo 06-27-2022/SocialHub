@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,11 +40,12 @@ public class PhotoController {
 	}
 	
 	@PostMapping("/upload")
-	public ResponseEntity<Map<String, String>> uploadFile(@RequestParam MultipartFile file) {
-		String publicURL = awsS3Service.uploadFile(file);
+	public ResponseEntity<Map<String, String>> uploadFile(@RequestParam MultipartFile file, String description, String tag,HttpServletRequest request) {
+		System.out.println(description);
+		System.out.println(tag);
+		String publicURL = awsS3Service.uploadFile(file,description,tag, request);
 		Map<String, String> response = new HashMap<>();
 		response.put("publicURL", publicURL);
 		return new ResponseEntity<Map<String, String>>(response, HttpStatus.CREATED);
 	}
-	
 }

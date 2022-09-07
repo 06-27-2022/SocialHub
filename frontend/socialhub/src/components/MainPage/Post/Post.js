@@ -7,7 +7,7 @@ import NearMeIcon from '@mui/icons-material/NearMe';
 import { ExpandMoreOutlined } from "@mui/icons-material";
 import './Post.css';
 
-function Post({profilePic, image, username, timestamp, message}) {
+function Post({profilePic, image, username, message}) {
   return (
     <div className="post">
         <div className="post__top">
@@ -15,7 +15,7 @@ function Post({profilePic, image, username, timestamp, message}) {
             className="post__avatar" />
             <div className="post__topInfo">
                 <h3>{username}</h3>
-                <p>Timestamp...</p>
+               
             </div>
         </div>
 

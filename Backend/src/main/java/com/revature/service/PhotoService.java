@@ -17,6 +17,6 @@ public class PhotoService {
 	private PhotoRepository photoRepository;
 	
 	public List<Photo> findAllPhotosByTag(String tag) {
-		return this.photoRepository.findAllByTag(tag);
+		return this.photoRepository.findAllByTagOrderByIdDesc(tag);
 	}
 }
