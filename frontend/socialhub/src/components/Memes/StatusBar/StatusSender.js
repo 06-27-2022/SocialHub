@@ -6,7 +6,6 @@ import "./StatusBar.css";
 import UploadIcon from "@mui/icons-material/Upload";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
-
 function StatusSender() {
   const inputRef = useRef(null);
   const hiddenFileInput = useRef(null);
@@ -32,9 +31,11 @@ function StatusSender() {
     setPhotoToPost(null);
     setPhotoThumbnail(null);
   };
+
+  //uploads photo
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (!inputRef.current.value) return;
 
     const formData = new FormData();
@@ -54,7 +55,6 @@ function StatusSender() {
         window.location.reload(false);
       }
     });
-    
   };
   return (
     <div className="statusSender">
@@ -62,8 +62,6 @@ function StatusSender() {
         <Avatar />
         <form>
           <input
-            
-            
             ref={inputRef}
             className="statusSender__input"
             placeholder={"Photo description"}

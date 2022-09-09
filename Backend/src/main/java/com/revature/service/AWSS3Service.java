@@ -25,11 +25,9 @@ public class AWSS3Service implements FileService{
 	@Autowired
 	private AmazonS3Client awsS3Client;
 	
-	@Autowired
-	private PhotoRepository photoRepository;
 	
 	@Override
-	public String uploadFile(MultipartFile file, String description, String tag,HttpServletRequest request) {
+	public String uploadFile(MultipartFile file) {
 		
 		String filenameExtension = StringUtils.getFilenameExtension(file.getOriginalFilename());
 		
@@ -47,15 +45,6 @@ public class AWSS3Service implements FileService{
 		
 		awsS3Client.setObjectAcl("muhammad-socialhub", key, CannedAccessControlList.PublicRead);
 		String publicUrl = awsS3Client.getResourceUrl("muhammad-socialhub", key);
-		
-		HttpSession session = request.getSession(false);
-		int id =  (int) session.getAttribute("accountId");
-		
-		System.out.println("UserID:" + id);
-		
-		Account account = new Account(id,"","","","");
-		Photo photo = new Photo(0, publicUrl, description, tag, account);
-		photoRepository.save(photo);
 		
 		return publicUrl;
 	}

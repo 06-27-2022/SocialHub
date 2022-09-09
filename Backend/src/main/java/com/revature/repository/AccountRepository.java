@@ -16,6 +16,9 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
 	//for registeration
 	Account findByEmail(String email);
 	
+	//for profile
+	Account findById(int id);
+	
 	//for testing tablesRelationship
 	List<Account> findAll();
 }
