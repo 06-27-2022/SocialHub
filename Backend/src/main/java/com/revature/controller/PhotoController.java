@@ -57,7 +57,7 @@ public class PhotoController {
 
 
 		Account account = new Account(id, "", "", "", "");
-		Photo photo = new Photo(0, publicURL, description, tag, account);
+		Photo photo = new Photo(0, publicURL, description, tag,0,0, account);
 		photoRepository.save(photo);
 		//----------------------------
 		Map<String, String> response = new HashMap<>();

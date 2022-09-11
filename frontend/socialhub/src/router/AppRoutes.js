@@ -6,9 +6,10 @@ import { Memes } from '../components/Memes/Memes';
 import { UserPage } from '../components/UserPage/UserPage'
 
 export const AppRoutes = () => (
+  
   <Routes>
-    <Route path="/" element={<MainPage />} />
     <Route path="/login" element={<Login />} />
+    <Route path="/" element={<MainPage />} />
     <Route path="/groups/memes" element={<Memes />} />
     <Route path="/userpage" element={<UserPage />} />
   </Routes>

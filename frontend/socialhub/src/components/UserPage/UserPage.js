@@ -63,7 +63,6 @@ export function UserPage() {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         firstName.current.value = result.accountId.firstName;
         lastName.current.value = result.accountId.lastName;
         email.current.value = result.accountId.email;
@@ -80,7 +79,6 @@ export function UserPage() {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         firstName.current.value = result.accountId.firstName;
         lastName.current.value = result.accountId.lastName;
         email.current.value = result.accountId.email;

@@ -43,7 +43,6 @@ public class ProfileController {
 		HttpSession session = request.getSession(false);
 		int id = (int) session.getAttribute("accountId");
 		Account account = this.accountService.findById(id);
-		System.out.println(id);
 		return this.profileService.findByAccountId(account);
 	}
 	

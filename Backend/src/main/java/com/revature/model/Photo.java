@@ -26,6 +26,8 @@ public class Photo {
     private String urllink;
     private String description;
     private String tag;
+    private float avgRating;
+    private int ratingsCount;
     
     @ManyToOne
     @JoinColumn(name = "uploaded_by")

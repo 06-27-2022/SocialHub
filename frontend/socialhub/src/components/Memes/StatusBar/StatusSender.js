@@ -1,10 +1,11 @@
 import { Avatar } from "@mui/material";
-import React, { useRef, useState } from "react";
+import React, { useContext,useRef, useState } from "react";
 import "./StatusSender.css";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import "./StatusBar.css";
 import UploadIcon from "@mui/icons-material/Upload";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import { UserContext } from "../../../context/UserContext";
 
 function StatusSender() {
   const inputRef = useRef(null);
@@ -12,6 +13,7 @@ function StatusSender() {
   const [photoToPost, setPhotoToPost] = useState(null);
   const [photoThumbnail, setPhotoThumbnail] = useState(null);
   const photoEndPoint = "http://localhost:8080/photo/upload";
+  const {userDetail} = useContext(UserContext);
 
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -59,7 +61,7 @@ function StatusSender() {
   return (
     <div className="statusSender">
       <div className="statusSender__top">
-        <Avatar />
+        <Avatar src={userDetail.profilePic}/>
         <form>
           <input
             ref={inputRef}

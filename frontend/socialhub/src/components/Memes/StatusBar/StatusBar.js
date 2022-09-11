@@ -11,6 +11,7 @@ function StatusBar() {
       .then(response =>  response.json())
       .then(result => {
         setPhotos(result);
+        
       })
   }, [])
   return (
@@ -20,8 +21,10 @@ function StatusBar() {
         <Post
           profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7oeegjCS9uIRPQlcTpEtMSWgcHuP6Wm-glw&usqp=CAU"
           message={photo.description}
-          
+          photoId = {photo.id}
           username={photo.uploadedBy.firstName}
+          avgRating={photo.avgRating}
+          ratingsCount={photo.ratingsCount}
           key={photo.id}
           image={photo.urllink} />
       ))}

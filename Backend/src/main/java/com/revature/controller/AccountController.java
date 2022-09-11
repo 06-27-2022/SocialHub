@@ -54,4 +54,10 @@ public class AccountController {
 	public List<Account> findAllEmail() {
 		return this.accountService.findAllEmail();
 	}
+	
+	//check if user is logged in
+	@GetMapping("/checksession")
+	public String checkSession(HttpServletRequest request) {
+		return this.accountService.checkSession(request);
+	}
 }

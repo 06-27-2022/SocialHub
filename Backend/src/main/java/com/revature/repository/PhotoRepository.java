@@ -12,4 +12,5 @@ public interface PhotoRepository extends JpaRepository<Photo, Integer>{
 	
 	List<Photo> findAllByTagOrderByIdDesc(String tag);
 
+	Photo findById(int id);
 }
