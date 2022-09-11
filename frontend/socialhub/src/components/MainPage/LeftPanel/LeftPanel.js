@@ -19,7 +19,7 @@ function LeftPanel() {
             </div>
 
             <Link to="/groups/memes"><LeftPanelRow Icon={PeopleIcon} title="Memes" /></Link>
-            <LeftPanelRow Icon={PeopleIcon} title="Quotes" />
+            <Link to="/groups/quotes"><LeftPanelRow Icon={PeopleIcon} title="Quotes" /></Link>
         </div>
     )
 }

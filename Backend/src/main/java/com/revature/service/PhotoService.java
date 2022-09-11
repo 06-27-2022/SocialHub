@@ -14,6 +14,10 @@ public class PhotoService {
 	@Autowired
 	private PhotoRepository photoRepository;
 	
+	public List<Photo> findAllPhotos() {
+		return this.photoRepository.findAllByOrderByIdDesc();
+	}
+	
 	public List<Photo> findAllPhotosByTag(String tag) {
 		return this.photoRepository.findAllByTagOrderByIdDesc(tag);
 	}

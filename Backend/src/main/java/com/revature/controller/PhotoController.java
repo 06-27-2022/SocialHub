@@ -35,10 +35,17 @@ public class PhotoController {
 
 	@Autowired
 	private AWSS3Service awsS3Service;
-	
+
 	@Autowired
 	private PhotoRepository photoRepository;
 
+	// for main pages
+	@GetMapping(path = "/all")
+	public List<Photo> findAllPhotos() {
+		return this.photoService.findAllPhotos();
+	}
+
+	// for group pages
 	@GetMapping(path = "/{tag}")
 	public List<Photo> findAllPhotosByTag(@PathVariable String tag) {
 		return this.photoService.findAllPhotosByTag(tag);
@@ -47,19 +54,16 @@ public class PhotoController {
 	@PostMapping("/upload")
 	public ResponseEntity<Map<String, String>> uploadFile(@RequestParam MultipartFile file, String description,
 			String tag, HttpServletRequest request) {
-		System.out.println(description);
-		System.out.println(tag);
 		String publicURL = awsS3Service.uploadFile(file);
-		
+
 		// for photo to DB functionality
 		HttpSession session = request.getSession(false);
 		int id = (int) session.getAttribute("accountId");
 
-
 		Account account = new Account(id, "", "", "", "");
-		Photo photo = new Photo(0, publicURL, description, tag,0,0, account);
+		Photo photo = new Photo(0, publicURL, description, tag, 0, 0, account);
 		photoRepository.save(photo);
-		//----------------------------
+		// ----------------------------
 		Map<String, String> response = new HashMap<>();
 		response.put("publicURL", publicURL);
 		return new ResponseEntity<Map<String, String>>(response, HttpStatus.CREATED);
